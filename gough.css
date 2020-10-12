@@ -1,0 +1,17 @@
+.fore {
+  background: url(assets/gough/wheat_0000_fore.png) no-repeat center center fixed; 
+}
+
+.mid {
+  background: url(assets/gough/wheat_0001_mid-tree.png) no-repeat center center fixed; 
+  
+}
+
+.mid2 {
+  background: url(assets/gough/wheat_0002_mid-mountain.png) no-repeat center center fixed; 
+
+}
+
+.back {
+  background: url(assets/gough/wheat_0003_back.png) no-repeat center center fixed; 
+}

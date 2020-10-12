@@ -1,0 +1,15 @@
+{
+  "name": "3dart",
+  "version": "1.0.0",
+  "description": "fun",
+  "main": "index.html",
+  "dependencies": {
+    "vanilla-tilt": "^1.7.0"
+  },
+  "devDependencies": {},
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "author": "zaharano (https://www.zaharano.com/)",
+  "license": "ISC"
+}

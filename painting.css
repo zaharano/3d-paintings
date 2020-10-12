@@ -1,0 +1,32 @@
+.painting {
+  height: 100vh;
+  width: 100%;
+  transform-style: preserve-3d;
+}
+
+.layer {
+  object-fit: cover;
+  width: 100%;
+  height: auto;
+  max-height: 100%;
+  position: absolute;
+  top: 0;
+  right: 0;
+}
+
+.fore {
+  transform: translateZ(200px);
+}
+
+.mid {
+  transform: translateZ(120px);
+}
+
+.mid2 {
+  transform: translateZ(80px);
+}
+
+.back {
+  transform: translateZ(0px);
+  transform: scale(1.2);
+}
