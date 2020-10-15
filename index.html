@@ -9,22 +9,25 @@
   <title>Gough</title>
 </head>
 <body>
-  <div class="painting">
-    <img src="assets/gough/wheat_0000_fore.png" alt="" class="layer fore">
-    <img src="assets/gough/wheat_0001_mid-tree.png" alt="" class="layer mid">
-    <img src="assets/gough/wheat_0002_mid-mountain.png" alt="" class="layer mid2">
-    <img src="assets/gough/wheat_0003_back.png" alt="" class="layer back">
-    <!-- <div class="layer fore"></div>
-    <div class="layer mid"></div>
-    <div class="layer mid2"></div>
-    <div class="layer back"></div> -->
+  <div class="frame">
+    <div class="painting">
+      <img src="assets/gough/wheat_0000_fore.png" alt="" class="layer fore">
+      <img src="assets/gough/wheat_0001_mid-tree.png" alt="" class="layer mid">
+      <img src="assets/gough/wheat_0002_mid-mountain.png" alt="" class="layer mid2">
+      <img src="assets/gough/wheat_0003_back.png" alt="" class="layer back">
+      <!-- <div class="layer fore"></div>
+      <div class="layer mid"></div>
+      <div class="layer mid2"></div>
+      <div class="layer back"></div> -->
+    </div>
   </div>
+  
 
   <script type="text/javascript" src="vanilla-tilt.min.js"></script>
   <script type="text/javascript">
     VanillaTilt.init(document.querySelector(".painting"), {
-      max: 20,
-      speed: 100,
+      max: 5,
+      speed: 300,
       perspective: 1000,
     });
   </script>
