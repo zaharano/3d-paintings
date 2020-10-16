@@ -8,19 +8,19 @@ document.addEventListener('mousemove', e => {
   mouse.x = e.clientX;
   mouse.y = e.clientY;
 
-  myTrackers.forEach(obj => {
-    let objX = (obj.clientWidth / 2) + obj.getBoundingClientRect().x;
-    let objY = (obj.clientHeight / 2) + obj.getBoundingClientRect().y;
-    let deltaX = objX - mouse.x;
-    let deltaY = objY - mouse.y;
+  myTrackers.forEach(ele => {
+    let eleX = (ele.clientWidth / 2) + ele.getBoundingClientRect().x;
+    let eleY = (ele.clientHeight / 2) + ele.getBoundingClientRect().y;
+    let deltaX = eleX - mouse.x;
+    let deltaY = eleY - mouse.y;
 
-    let trackingRatioX = deltaX / (deltaX >= 0 ? objX : (window.innerWidth - objX));
-    let transformX = trackingRatioX * (obj.parentElement.clientWidth / 2) * -1;
+    let trackingRatioX = deltaX / (deltaX >= 0 ? eleX : (window.innerWidth - eleX));
+    let transformX = trackingRatioX * (ele.parentElement.clientWidth / 2) * -1;
 
-    let trackingRatioY = deltaY / (deltaY >= 0 ? objY : (window.innerWidth - objY));
-    let transformY = trackingRatioY * (obj.parentElement.clientHeight / 2) * -1;
+    let trackingRatioY = deltaY / (deltaY >= 0 ? eleY : (window.innerWidth - eleY));
+    let transformY = trackingRatioY * (ele.parentElement.clientHeight / 2) * -1;
 
-    obj.style.transform = `translate(${transformX}px, ${transformY}px)`;
+    ele.style.transform = `translate(${transformX}px, ${transformY}px)`;
   })
 })
 
