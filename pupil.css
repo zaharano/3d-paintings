@@ -1,0 +1,40 @@
+.head {
+  display: flex;
+  flex-direction: row;
+  max-width: 80%;
+  margin: auto;
+  margin-top: 10em;
+  justify-content: center;
+}
+
+.eyeball {
+  position: relative;
+  width: 200px;
+  height: 80px;
+  border: 2px solid grey;
+  border-radius: 200px;
+  overflow: hidden;
+}
+
+.iris {
+  height: 110%;
+  width: 80px;
+  position: absolute;
+  top: -5px;
+  right: 30%;
+  border: 2px solid grey;
+  border-radius: 200px;
+  overflow: hidden;
+  /* transition: transform cubic-bezier(0.445, 0.05, 0.55, 0.95) 1s; */
+
+}
+
+.pupil {
+  height: 30px;
+  width: 30px;
+  position: absolute;
+  top: 30%;
+  right: 30%;
+  border: 2px solid grey;
+  border-radius: 200px;
+}
