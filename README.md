@@ -8,4 +8,5 @@ Recently though I started to use JS to take those same chopped up paintings into
 
 Things I want to do - 
 - Add a depth of field/focus effect slider(s) to the parallax images.
-- Clean up the tracker.js lower its system hit (polling rate a thing?)
+- Clean up the tracker.js, to lower its hit on system. Very heavy at this point (used to be less?) (polling rate a thing?)
+- Maybe refactor into GSAP, that could be optimized better?
