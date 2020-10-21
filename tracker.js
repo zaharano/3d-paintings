@@ -4,6 +4,9 @@ const myTrackers = document.querySelectorAll(".tracker");
 
 let mouse = {x: 0, y: 0};
 
+// inexplicably slow in desktop Safari - issue I've had before
+// in Etch a sketch app
+// slower polling time or something in Safari?
 document.addEventListener('mousemove', e => {
   mouse.x = e.clientX;
   mouse.y = e.clientY;
@@ -21,17 +24,20 @@ document.addEventListener('mousemove', e => {
     // determine ratio of delta vs possible distance,
     // multiply by distance to edge of parent
     let trackingRatioX = deltaX / (deltaX >= 0 ? eleX : (window.innerWidth - eleX));
-    let transformX = trackingRatioX * (ele.parentElement.clientWidth / 2) * -1;
+    let transformX = trackingRatioX * (ele.parentElement.clientWidth / 2) * -0.8;
     let trackingRatioY = deltaY / (deltaY >= 0 ? eleY : (window.innerWidth - eleY));
-    let transformY = trackingRatioY * (ele.parentElement.clientHeight / 2) * -1;
+    let transformY = trackingRatioY * (ele.parentElement.clientHeight / 2) * -0.8;
 
     // apply transform to element
-    ele.style.transform = `translate(${transformX}px, ${transformY}px)`;
+    // reqAnimFrame attempt to fix slow Safari refereshing
+    window.requestAnimationFrame(() => {
+      ele.style.transform = `translate(${transformX}px, ${transformY}px)`;
+    })
+    
   })
 })
 
-    
-
+  
 // psuedos
 // take the objectX subtract mouseX = deltaX
 // if deltaX positive
@@ -45,7 +51,7 @@ document.addEventListener('mousemove', e => {
   // divide the deltaX by distanceX to get percent of mouse along distanceX
   // multiply that percent by half of the cached objectWidth, transformX(thatpx)
 
-// need a updatesCachesOnResize func
+// caches? resizes?
   // cache parentWidth, totalWidth
   // cache parentHeight, totalHeight
 
