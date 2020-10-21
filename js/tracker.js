@@ -2,12 +2,20 @@
 
 const myTrackers = document.querySelectorAll(".tracker");
 
+let intervalCheck = true;
 let mouse = {x: 0, y: 0};
 
 // inexplicably slow in desktop Safari - issue I've had before
 // in Etch a sketch app
 // slower polling time or something in Safari?
 document.addEventListener('mousemove', e => {
+  if (intervalCheck) {
+    updateEyes(e);
+    intervalCheck = false;
+  }
+});
+
+function updateEyes(e) {
   mouse.x = e.clientX;
   mouse.y = e.clientY;
 
@@ -29,15 +37,25 @@ document.addEventListener('mousemove', e => {
     let transformY = trackingRatioY * (ele.parentElement.clientHeight / 2) * -0.8;
 
     // apply transform to element
-    // reqAnimFrame attempt to fix slow Safari refereshing
-    window.requestAnimationFrame(() => {
-      ele.style.transform = `translate(${transformX}px, ${transformY}px)`;
-    })
-    
-  })
-})
+    // reqAnimFrame attempt to fix slow performance
+    // window.requestAnimationFrame(() => {
+    //   ele.style.transform = `translate(${transformX}px, ${transformY}px)`;
+    // })
+    // ele.style.transform = `translate(${transformX}px, ${transformY}px)`; 
 
-  
+    // gsap much more performant  in Safari,
+    // but not slower in FF and Chrome - need to find out why!
+    gsap.to(ele, {
+      x: transformX,
+      y: transformY
+    })
+  })
+}
+
+const interval = window.setInterval(() => {
+  intervalCheck = true;
+}, 200);
+
 // psuedos
 // take the objectX subtract mouseX = deltaX
 // if deltaX positive

@@ -11,7 +11,7 @@ body {
 }
 
 .painting {
-  margin: 10rem;
+  margin: 10rem 5rem;
 }
 
 /* .spotlight {
@@ -37,13 +37,13 @@ body {
 } */
 
 .frame1 {
-  border-style:solid;
-  border-image: url('./assets/frames/frame1-r.png') 85 85 / 87px / 87px round;
-  filter: drop-shadow(20px 20px 50px #000000);
+  border-style: solid;
+  border-image: url('../assets/frames/frame1-r.png') 85 / 120px / 87px round;
+  filter: drop-shadow(0 20px 50px #000000);
 }
 
 .frame3 {
-  border-style:solid;
-  border-image: url('./assets/frames/frame3-r.png') 360 360 292 360 / 220px / 100px round;
-  filter: drop-shadow(20px 20px 50px #000000);
+  border-style: solid;
+  border-image: url('../assets/frames/frame3-r.png') 360 / 220px / 100px round;
+  filter: drop-shadow(0 20px 50px #000000);
 }
