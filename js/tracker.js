@@ -1,60 +1,85 @@
 'use strict'
 
 const myTrackers = document.querySelectorAll(".tracker");
-
+let timeToUpdate = true;
+updateCaches(myTrackers);
 let intervalCheck = true;
 let mouse = {x: 0, y: 0};
+let windowWidth = window.innerWidth;
+let windowHeight = window.innerHeight;
 
 // inexplicably slow in desktop Safari - issue I've had before
 // in Etch a sketch app
 // slower polling time or something in Safari?
+
+// clientWidth / getBoundingClientRect might be expensive - 
+// try out caching these variables on load.
+
+//caching values didn't fix the performance.
+//next thing to try is severely reducing quality of pngs on the page?
+
 document.addEventListener('mousemove', e => {
-  if (intervalCheck) {
-    updateEyes(e);
-    intervalCheck = false;
-  }
+  updateEyes(e);
+  console.log('inside event listener')
 });
+
+function updateCaches(trackers) {
+  console.log('updating cache')
+  trackers.forEach(ele => {
+    ele.cache = {
+      eleX: (ele.clientWidth / 2) + ele.getBoundingClientRect().x,
+      eleY: (ele.clientHeight / 2) + ele.getBoundingClientRect().y,
+      parentX: (ele.parentElement.clientWidth / 2),
+      parentY: (ele.parentElement.clientHeight / 2),
+    }
+  })
+  timeToUpdate = false;
+}
 
 function updateEyes(e) {
   mouse.x = e.clientX;
   mouse.y = e.clientY;
 
-  myTrackers.forEach(ele => {
-    // element center points
-    let eleX = (ele.clientWidth / 2) + ele.getBoundingClientRect().x;
-    let eleY = (ele.clientHeight / 2) + ele.getBoundingClientRect().y;
+  if (timeToUpdate) {
+    updateCaches(myTrackers);
+  }
 
+  myTrackers.forEach(ele => {
+    console.log(ele.cache)
+    let { eleX, eleY, parentX, parentY } = ele.cache;
+    // element center points
+    // let eleX = (ele.clientWidth / 2) + ele.getBoundingClientRect().x;
+    // let eleY = (ele.clientHeight / 2) + ele.getBoundingClientRect().y;
+
+    console.log(eleX, eleY, parentX, parentY)
     // distances between element center and mouse
     let deltaX = eleX - mouse.x;
     let deltaY = eleY - mouse.y;
 
+
     // check if delta is positive to know which side of element mouse is on, 
     // determine ratio of delta vs possible distance,
     // multiply by distance to edge of parent
-    let trackingRatioX = deltaX / (deltaX >= 0 ? eleX : (window.innerWidth - eleX));
-    let transformX = trackingRatioX * (ele.parentElement.clientWidth / 2) * -0.8;
-    let trackingRatioY = deltaY / (deltaY >= 0 ? eleY : (window.innerWidth - eleY));
-    let transformY = trackingRatioY * (ele.parentElement.clientHeight / 2) * -0.8;
+    let trackingRatioX = deltaX / (deltaX >= 0 ? eleX : (windowWidth - eleX));
+    let transformX = trackingRatioX * parentX * -0.8;
+    let trackingRatioY = deltaY / (deltaY >= 0 ? eleY : (windowHeight - eleY));
+    let transformY = trackingRatioY * parentY * -0.8;
 
     // apply transform to element
-    // reqAnimFrame attempt to fix slow performance
-    // window.requestAnimationFrame(() => {
-    //   ele.style.transform = `translate(${transformX}px, ${transformY}px)`;
-    // })
-    // ele.style.transform = `translate(${transformX}px, ${transformY}px)`; 
+    ele.style.transform = `translate(${transformX}px, ${transformY}px)`; 
 
     // gsap much more performant  in Safari,
-    // but not slower in FF and Chrome - need to find out why!
-    gsap.to(ele, {
-      x: transformX,
-      y: transformY
-    })
+    // but slower in FF and Chrome - need to find out why!
+    // gsap.to(ele, {
+    //   x: transformX,
+    //   y: transformY
+    // })
   })
 }
 
-const interval = window.setInterval(() => {
-  intervalCheck = true;
-}, 200);
+// const interval = window.setInterval(() => {
+//   intervalCheck = true;
+// }, 200);
 
 // psuedos
 // take the objectX subtract mouseX = deltaX
@@ -72,6 +97,8 @@ const interval = window.setInterval(() => {
 // caches? resizes?
   // cache parentWidth, totalWidth
   // cache parentHeight, totalHeight
+
+  
 
   // let cached width = window.innerWidth && document.documentElement.clientWidth ? 
   // Math.min(window.innerWidth, document.documentElement.clientWidth) : 
