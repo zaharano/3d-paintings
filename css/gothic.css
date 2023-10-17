@@ -1,0 +1,40 @@
+/* gothic specific positions */
+.gothic .eyeball {
+  width: 4.8%;
+}
+
+.gothic .pupil {
+  width: 42%;
+  top: -21%;
+  right: 40%;
+}
+
+.gothic .iris {
+  width: 42%;
+  top: 10%;
+  left: 15%;
+}
+
+.go-w-left {
+  top: 31.4%;
+  left: 22%;
+  width: 4.7%;
+}
+
+.go-w-right {
+  top: 31.8%;
+  left: 29%;
+  width: 4.7%;
+}
+
+.go-m-left {
+  top: 22.6%;
+  left: 63.4%;
+  width: 4.85%;
+}
+
+.go-m-right {
+  top: 22.4%;
+  left: 72.7%;
+  width: 4.85%;
+}

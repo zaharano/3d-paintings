@@ -1,33 +1,3 @@
-img {
-  width: 100%;
-}
-
-.head {
-  justify-content: center;
-  position: relative;
-  z-index: 4;
-  max-width: 600px;
-  transform: scale(.9);
-}
-
-.eyeball {
-  position: absolute;
-  overflow: hidden;
-  z-index: -4;
-  /* transition: transform .2s ease-in-out; */
-}
-
-.iris {
-  position: absolute;
-  overflow: hidden;
-  z-index: 2;
-}
-
-.pupil {
-  position: absolute;
-  z-index: 3;
-}
-
 /* george specific positions + scales*/
 .george .eyeball {
   width: 5.6%;
@@ -52,51 +22,10 @@ img {
 }
 
 .g-left .iris {
-  top: -3%
+  top: -3%;
 }
 
 .g-right {
   top: 29.5%;
   left: 56.1%;
-}
-
-/* gothic specific positions */
-.gothic .eyeball {
-  width: 4.8%;
-}
-
-.gothic .pupil {
-  width: 42%;
-  top: -21%;
-  right: 40%;
-}
-
-.gothic .iris {
-  width: 42%;
-  top: 10%;
-  left: 15%;
-}
-
-.go-w-left {
-  top: 31.4%;
-  left: 22%;
-  width: 4.7%;
-}
-
-.go-w-right {
-  top: 31.8%;
-  left: 29%;
-  width: 4.7%;
-}
-
-.go-m-left {
-  top: 22.6%;
-  left: 63.4%;
-  width: 4.85%;
-}
-
-.go-m-right {
-  top: 22.4%;
-  left: 72.7%;
-  width: 4.85%;
 }

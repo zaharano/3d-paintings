@@ -1,0 +1,29 @@
+img {
+  width: 100%;
+}
+
+.head {
+  justify-content: center;
+  position: relative;
+  z-index: 4;
+  max-width: 600px;
+  transform: scale(0.9);
+}
+
+.eyeball {
+  position: absolute;
+  overflow: hidden;
+  z-index: -4;
+  /* transition: transform .2s ease-in-out; */
+}
+
+.iris {
+  position: absolute;
+  overflow: hidden;
+  z-index: 2;
+}
+
+.pupil {
+  position: absolute;
+  z-index: 3;
+}
