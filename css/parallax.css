@@ -25,14 +25,13 @@
 }
 
 .mid {
-  transform: translateZ(120px) scaleX(1.1);
+  transform: translateZ(120px) translateY(10px) scale(1.05);
 }
 
 .mid2 {
-  transform: translateZ(80px);
+  transform: translateZ(80px) translateY(10px) scaleX(1.1);
 }
 
 .back {
-  transform: translateZ(0px);
-  transform: scale(1.2);
+  transform: scale(1.2) translateY(20px);
 }
