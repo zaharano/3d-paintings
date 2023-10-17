@@ -6,7 +6,7 @@ img {
   justify-content: center;
   position: relative;
   z-index: 4;
-  max-width: 600px;
+  width: clamp(300px, 600px, 75dvw);
   transform: scale(0.9);
 }
 

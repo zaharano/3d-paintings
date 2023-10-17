@@ -1,0 +1,54 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link rel="stylesheet" href="../css/reset.css" />
+    <link rel="stylesheet" href="../css/gallery.css" />
+    <link rel="stylesheet" href="../css/parallax.css" />
+    <!-- <link rel="stylesheet" href="gough.css"> -->
+    <title>Gough</title>
+  </head>
+  <body>
+    <div class="gallery-container">
+      <div class="outer">
+        <div class="inner">
+          <div class="fixed-container">
+            <div class="frame3"></div>
+          </div>
+          <div class="layer-container">
+            <img
+              src="../assets/gough/wheat_0000_fore.png"
+              alt=""
+              class="layer fore"
+            />
+            <img
+              src="../assets/gough/wheat_0001_mid-tree.png"
+              alt=""
+              class="layer mid"
+            />
+            <img
+              src="../assets/gough/wheat_0002_mid-mountain.png"
+              alt=""
+              class="layer mid2"
+            />
+            <img
+              src="../assets/gough/wheat_0003_back.png"
+              alt=""
+              class="layer back"
+            />
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <script type="text/javascript" src="../js/vanilla-tilt.min.js"></script>
+    <script type="text/javascript">
+      VanillaTilt.init(document.querySelector('.layer-container'), {
+        max: 8,
+        speed: 300,
+        perspective: 500,
+      });
+    </script>
+  </body>
+</html>

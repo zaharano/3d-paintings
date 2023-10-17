@@ -1,13 +1,19 @@
 .frame {
-  border: 10px solid black;
   overflow: hidden;
-  width: 550px;
-  margin: auto;
+  position: relative;
 }
 
-.painting {
-  height: 400px;
-  width: 600px;
+.outer {
+  position: relative;
+}
+
+.inner {
+  overflow: hidden;
+}
+
+.layer-container {
+  width: clamp(300px, 800px, 75dvw);
+  aspect-ratio: 5/4;
   margin: auto;
   transform-style: preserve-3d;
 }
@@ -15,23 +21,24 @@
 .layer {
   object-fit: cover;
   max-height: 100%;
+  width: 100%;
   position: absolute;
   top: 10px;
-  left: 20px;
+  left: -10px;
 }
 
 .fore {
-  transform: translateZ(200px);
+  transform: translateZ(80px);
 }
 
 .mid {
-  transform: translateZ(120px) translateY(10px) scale(1.05);
+  transform: translateZ(10px) translateY(20px) scaleX(1.2);
 }
 
 .mid2 {
-  transform: translateZ(80px) translateY(10px) scaleX(1.1);
+  transform: translateZ(-40px) translateY(10px) scale(1.4);
 }
 
 .back {
-  transform: scale(1.2) translateY(20px);
+  transform: scale(1.5) translateY(20px) translateZ(-140px);
 }
